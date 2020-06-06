@@ -1,3 +1,4 @@
+import 'package:findfiles/button_icon.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/painting.dart';
@@ -57,20 +58,9 @@ class _MyHomePageState extends State<MyHomePage> {
                               fontSize: 24
                           ),),
                           Spacer(),
-                          IconButton(
-                            icon: Icon(
-                              Icons.add,
-                              color: Colors.black,
-                            ),
-                            onPressed: () { print('A1'); },
-                          ),
-                          IconButton(
-                            icon: Icon(
-                              Icons.folder_open,
-                              color: Colors.black,
-                            ),
-                            onPressed: () { print('A2'); },
-                          ),
+                          ButtonIcon(Icons.add, Colors.black),
+                          SizedBox(width: 25,),
+                          ButtonIcon(Icons.folder_open, Colors.black),
                         ],
                       ),
 //                      SizedBox(height: 20,),
@@ -117,8 +107,8 @@ class _MyHomePageState extends State<MyHomePage> {
               delegate: SliverChildBuilderDelegate(
                     (BuildContext context, int index) {
                   return new GridView.count(
-                    childAspectRatio:MediaQuery.of(context).size.width / 500,
-                    padding: const EdgeInsets.only(left: 20.0, right: 20.0, bottom: 40.0),
+                    childAspectRatio:MediaQuery.of(context).size.width / 550,
+                    padding: const EdgeInsets.only(left: 20.0, right: 20.0, bottom: 60.0, top: 10.0),
                     crossAxisCount: 2,
                     primary: true,
                     crossAxisSpacing: 10,
@@ -127,6 +117,12 @@ class _MyHomePageState extends State<MyHomePage> {
                     children: <Widget>[
                       _cardsFiles('Bussines', 52, 0xFF151528, 0xFF47CD91),
                       _cardsFiles('Documents', 18, 0xFF151528, 0xFFF8A603),
+                      _cardsFiles('Freelancing', 20, 0xFF151528, 0xFFF9936D),
+                      _cardsFiles('Photos', 220, 0xFF151528, 0xFF42C4FA),
+                      _cardsFiles('Tutorials', 05, 0xFF151528, 0xFF6C5EFD),
+                      _cardsFiles('Videos', 120, 0xFF151528, 0xFFF27323),
+
+                      // removed
                       _cardsFiles('Freelancing', 20, 0xFF151528, 0xFFF9936D),
                       _cardsFiles('Photos', 220, 0xFF151528, 0xFF42C4FA),
                       _cardsFiles('Tutorials', 05, 0xFF151528, 0xFF6C5EFD),
