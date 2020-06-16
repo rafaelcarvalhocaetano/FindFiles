@@ -1,4 +1,5 @@
 import 'package:findfiles/button_icon.dart';
+import 'package:findfiles/photos.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/painting.dart';
@@ -140,67 +141,78 @@ class _MyHomePageState extends State<MyHomePage> {
   }
 
   _cardsFiles(String file, int count, int colorCard, int colorsIcons) {
-    return Container(
-      width: MediaQuery.of(context).size.width,
-      height: 30.0,
-      padding: const EdgeInsets.only(top: 20.0),
-      decoration: BoxDecoration(
-        borderRadius: BorderRadius.circular(20),
-        color: Color(0xFFF6F5FB),
-      ),
-      child: Column(
-        children: <Widget>[
-          Container(
-            child: Row(
-              children: <Widget>[
-                Padding(
-                  padding: const EdgeInsets.only(left: 20, top: 0),
-                  child: Container(
-                    alignment: Alignment.center,
-                    width: MediaQuery.of(context).size.width / 5,
-                    height: MediaQuery.of(context).size.width / 5,
-                    decoration: BoxDecoration(
-                        borderRadius: BorderRadius.circular(25),
+    return GestureDetector(
+      onTap: () {
+        print('gesture');
+        Navigator.push(
+          context,
+          MaterialPageRoute(
+            builder: (context) => Photos(),
+          ),
+        );
+      },
+      child: Container(
+        width: MediaQuery.of(context).size.width,
+        height: 30.0,
+        padding: const EdgeInsets.only(top: 20.0),
+        decoration: BoxDecoration(
+          borderRadius: BorderRadius.circular(20),
+          color: Color(0xFFF6F5FB),
+        ),
+        child: Column(
+          children: <Widget>[
+            Container(
+              child: Row(
+                children: <Widget>[
+                  Padding(
+                    padding: const EdgeInsets.only(left: 20, top: 0),
+                    child: Container(
+                      alignment: Alignment.center,
+                      width: MediaQuery.of(context).size.width / 5,
+                      height: MediaQuery.of(context).size.width / 5,
+                      decoration: BoxDecoration(
+                          borderRadius: BorderRadius.circular(25),
 //                        color: Color(0xFF151528)
-                        color: Color(colorCard)
-                    ),
-                    child: Icon(
-                      Icons.folder, color: Color(colorsIcons),
-                      size: 45,
+                          color: Color(colorCard)
+                      ),
+                      child: Icon(
+                        Icons.folder, color: Color(colorsIcons),
+                        size: 45,
+                      ),
                     ),
                   ),
-                ),
-                Spacer(),
-                IconButton(icon: Icon(Icons.more_vert), onPressed: () { print('MORE'); }),
-              ],
-            ),
-          ),
-          Padding(
-            padding: const EdgeInsets.all(20.0),
-            child: Container(
-              width: MediaQuery.of(context).size.width / 2.5,
-              child: Column(
-                crossAxisAlignment: CrossAxisAlignment.start,
-                children: <Widget>[
-                  Text(file, style: TextStyle(
-                    fontWeight: FontWeight.bold,
-                    fontSize: 24,
-                    fontFamily: 'OpenSans',
-                    color: Color(0xFF151528),
-                  ),),
-                  Padding(
-                    padding: const EdgeInsets.only(top: 5.0),
-                    child: Text('${count} items', style: TextStyle(
-                      fontSize: 16,
-                      fontFamily: 'OpenSans',
-                      color: Color(colorCard),
-                    ),),
-                  )
+                  Spacer(),
+                  IconButton(icon: Icon(Icons.more_vert), onPressed: () { print('MORE'); }),
                 ],
               ),
             ),
-          ),
-        ],
+            Padding(
+              padding: const EdgeInsets.all(20.0),
+              child: Container(
+                width: MediaQuery.of(context).size.width / 2.5,
+                child: Column(
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  children: <Widget>[
+                    Text(file, style: TextStyle(
+                      fontWeight: FontWeight.bold,
+                      fontSize: 24,
+                      fontFamily: 'OpenSans',
+                      color: Color(0xFF151528),
+                    ),),
+                    Padding(
+                      padding: const EdgeInsets.only(top: 5.0),
+                      child: Text('${count} items', style: TextStyle(
+                        fontSize: 16,
+                        fontFamily: 'OpenSans',
+                        color: Color(colorCard),
+                      ),),
+                    )
+                  ],
+                ),
+              ),
+            ),
+          ],
+        ),
       ),
     );
   }
