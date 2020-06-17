@@ -26,8 +26,7 @@ class Photos extends StatelessWidget {
             ),
             _cardImage(context),
             _cardImage(context),
-            _cardImage(context),
-            _cardImage(context),
+        
           ],
         ),
       ),
